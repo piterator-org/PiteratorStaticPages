@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="https://ui.piterator.xyz/quligem-ui/css/quligem.css" rel="stylesheet" />
+    <script src="https://static.piterator.com/node_modules/jquery/dist/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <title>Light Search - 轻搜索</title>
+    <style>
+        #holder{
+            position: relative;
+            height: 42px;
+            min-width: 360px;
+            width: 40%;
+            margin: auto;
+        }
+        #search_box{
+            height: 42px;
+            width: 100%;
+            display: block;
+            margin-top: .6em;
+            margin-bottom: .6em;
+            border-radius: 0.8em;
+            border: 1.5px solid rgb(0,181,173);
+            color: rgb(0,181,173);
+            padding-left: 12px;
+            padding-right: 5.8em;
+            box-sizing: border-box;
+            font-weight: 100;
+            outline: none;
+        }
+        #search_btn{
+            height: 42px;
+            width: 5em;
+            margin-bottom: .6em;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            border: 1.5px solid rgb(0,181,173);
+            box-sizing: border-box;
+            font-weight: 100;
+            border-radius: 0px 12px 12px 0px;
+        }
+    </style>
+</head>
+<body>
+    <div style="height: 100px; box-sizing: border-box;"></div>
+    <h1 class="header teal center">轻搜索 Light Search</h1>
+    <div id="holder">
+        <input id="search_box" name="search_box" placeholder="搜索无需繁琐" onfocus="box_onfocus()" onblur="box_onblur()" />
+        <span class="button teal reversal" id="search_btn" onclick="start()">开始</span>
+    </div>
+    <script>
+        function box_onfocus(){
+            $('#search_box').css('border','2px solid rgb(0,181,173)');
+            $('#search_btn').css('border','2px solid rgb(0,181,173)');
+            $('#search_box').css('border-radius','42px');
+            $('#search_btn').css('border-radius',' 0px 42px 42px 0px');
+        }
+        function box_onblur(){
+            $('#search_box').css('border','1.5px solid rgb(0,181,173)');
+            $('#search_tnx').css('border','1.5px solid rgb(0,181,173)');
+            $('#search_box').css('border-radius','12px');
+            $('#search_btn').css('border-radius',' 0px 12px 12px 0px');
+        }
+        function start(){
+            var url_jump="https://www.baidu.com/s?ie=UTF-8&wd="+document.getElementById("search_box").value;
+            window.open(url_jump,"_blank");
+        }
+    </script>
+</body>
+</html>
