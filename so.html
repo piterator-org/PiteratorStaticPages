@@ -50,17 +50,23 @@
         }
     </style>
 </head>
-<body>
+<body onkeypress="if(event.keyCode==13)start()">
     <div style="height: 100px; box-sizing: border-box;"></div>
     <h1 class="header teal center">轻搜索 Light Search</h1>
     <div class="holders">
-        <input id="search_box" name="search_box" placeholder="搜索无需繁琐" onfocus="box_onfocus()" onblur="box_onblur()" />
+        <input id="search_box" name="search_box" placeholder="搜索无需繁琐" onfocus="box_onfocus()" onblur="box_onblur()" onkeypress="if(event.keyCode==13)start()" />
         <span class="button teal reversal" id="search_btn" onclick="start()">开始</span>
     </div>
     <div class="holders">
         <span class="button teal reversal engines" id="baidu" onclick="baidu()">百度</span>
         <span class="button teal engines" id="bing" onclick="bing()">必应国内版</span>
         <span class="button teal engines" id="bing_gob" onclick="bing_gob()">必应国际版</span>
+    </div>
+    <div style="height: 5px; box-sizing: border-box;"></div>
+    <div class="holders">
+        <span class="button teal engines" id="_360" onclick="_360()">360搜索</span>
+        <span class="button teal engines" id="sogou" onclick="sogou()">搜狗搜索</span>
+        <span class="button teal engines" id="github" onclick="github()">GitHub</span>
     </div>
     <script>
         /*
@@ -83,6 +89,9 @@
             if(engine_id==0)url_jump="https://www.baidu.com/s?ie=UTF-8&wd="+document.getElementById("search_box").value;
             else if(engine_id==1)url_jump="https://cn.bing.com/search?ensearch=0&q="+document.getElementById("search_box").value;
             else if(engine_id==2)url_jump="https://cn.bing.com/search?ensearch=1&q="+document.getElementById("search_box").value;
+            else if(engine_id==3)url_jump="https://www.so.com/s?q="+document.getElementById("search_box").value;
+            else if(engine_id==4)url_jump="https://www.sogou.com/web?query="+document.getElementById("search_box").value;
+            else if(engine_id==5)url_jump="https://github.com/search?q="+document.getElementById("search_box").value;
             else url_jump="https://www.oier.fun/";
             window.open(url_jump,"_blank");
         }
@@ -100,6 +109,21 @@
             engine_id=2;
             $(".engines").removeClass("reversal");
             $("#bing_gob").addClass("reversal");
+        }
+        function _360(){
+            engine_id=3;
+            $(".engines").removeClass("reversal");
+            $("#_360").addClass("reversal");
+        }
+        function sogou(){
+            engine_id=4;
+            $(".engines").removeClass("reversal");
+            $("#sogou").addClass("reversal");
+        }
+        function github(){
+            engine_id=5;
+            $(".engines").removeClass("reversal");
+            $("#github").addClass("reversal");
         }
     </script>
 </body>
