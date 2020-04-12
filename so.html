@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -6,12 +6,13 @@
     <script src="https://static.piterator.com/node_modules/jquery/dist/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <title>Light Search - 轻搜索</title>
     <style>
-        #holder{
+        .holders{
             position: relative;
             height: 42px;
             min-width: 360px;
             width: 40%;
             margin: auto;
+            text-align: center;
         }
         #search_box{
             height: 42px;
@@ -31,7 +32,6 @@
         #search_btn{
             height: 42px;
             width: 88px;
-            margin-bottom: .6em;
             position: absolute;
             top: 0px;
             right: 0px;
@@ -41,14 +41,26 @@
             font-weight: 100;
             border-radius: 0px 12px 12px 0px;
         }
+        .engines{
+            height: 42px;
+            margin-top: .6em;
+            border: 1.5px solid rgb(0,181,173);
+            box-sizing: border-box;
+            font-weight: 100;
+        }
     </style>
 </head>
 <body>
     <div style="height: 100px; box-sizing: border-box;"></div>
     <h1 class="header teal center">轻搜索 Light Search</h1>
-    <div id="holder">
+    <div class="holders">
         <input id="search_box" name="search_box" placeholder="搜索无需繁琐" onfocus="box_onfocus()" onblur="box_onblur()" />
         <span class="button teal reversal" id="search_btn" onclick="start()">开始</span>
+    </div>
+    <div class="holders">
+        <span class="button teal reversal engines" id="baidu" onclick="baidu()">百度</span>
+        <span class="button teal engines" id="bing" onclick="bing()">必应国内版</span>
+        <span class="button teal engines" id="bing_gob" onclick="bing_gob()">必应国际版</span>
     </div>
     <script>
         /*
@@ -65,9 +77,29 @@
             $('#search_btn').css('border-radius',' 0px 12px 12px 0px');
         }
         */
+        var engine_id=0;
         function start(){
-            var url_jump="https://www.baidu.com/s?ie=UTF-8&wd="+document.getElementById("search_box").value;
+            var url_jump;
+            if(engine_id==0)url_jump="https://www.baidu.com/s?ie=UTF-8&wd="+document.getElementById("search_box").value;
+            else if(engine_id==1)url_jump="https://cn.bing.com/search?ensearch=0&q="+document.getElementById("search_box").value;
+            else if(engine_id==2)url_jump="https://cn.bing.com/search?ensearch=1&q="+document.getElementById("search_box").value;
+            else url_jump="https://www.oier.fun/";
             window.open(url_jump,"_blank");
+        }
+        function baidu(){
+            engine_id=0;
+            $(".engines").removeClass("reversal");
+            $("#baidu").addClass("reversal");
+        }
+        function bing(){
+            engine_id=1;
+            $(".engines").removeClass("reversal");
+            $("#bing").addClass("reversal");
+        }
+        function bing_gob(){
+            engine_id=2;
+            $(".engines").removeClass("reversal");
+            $("#bing_gob").addClass("reversal");
         }
     </script>
 </body>
