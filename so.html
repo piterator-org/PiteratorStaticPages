@@ -15,15 +15,16 @@
     <script type="text/javascript">
         window.onerror = function () { return true; }
         $(function () {
-            headerH = 0;
-            var h = $(window).height();
-            $("#iframe").height((h - headerH) + "px");
+            $("#obj").height(($(window).height()) + "px");
+            $("#obj").width(($(window).width()) + "px");
         });
     </script>
 </head>
 
 <body>
-    <iframe id="iframe" frameborder="0" src="https://litesearch.cn/" style="width:100%"></iframe>
+    <object type="text/html" id="obj"
+            data="https://litesearch.cn/">
+    </object>
 </body>
 
 </html>
