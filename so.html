@@ -1,30 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <title>Lite Search - 轻搜索</title>
-    <style>
-        body{
-            margin: 0;
-            padding: 0;
-            overflow-y: hidden;
-        }
-    </style>
-    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
-    <script type="text/javascript">
-        window.onerror = function () { return true; }
-        $(function () {
-            $("#obj").height(($(window).height()) + "px");
-            $("#obj").width(($(window).width()) + "px");
-        });
-    </script>
+	<title>Page Title</title>
 </head>
-
-<body>
-    <object type="text/html" id="obj"
-            data="https://litesearch.cn/">
-    </object>
-</body>
-
+<frameset cols="100%">
+    <frame src="https://litesearch.cn/">
+</frameset>
 </html>
